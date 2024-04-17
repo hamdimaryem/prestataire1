@@ -14,21 +14,24 @@ if (isset($input_data['mail']) && isset($input_data['password'])) {
     $mail = $input_data['mail'];
     $password = $input_data['password'];
 
+    // Afficher les données pour débogage
+    var_dump($mail, $password);
+
     // Requête paramétrée pour récupérer les informations de l'utilisateur
     $sql = "SELECT mail, password FROM personne WHERE mail = :mail";
     $stmt = $connexion->prepare($sql);
     $stmt->execute(['mail' => $mail]);
-    $personne = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Debugging: Afficher les informations de l'utilisateur récupérées de la base de données
+    // Récupérer le résultat de la requête pour débogage
+    $personne = $stmt->fetch(PDO::FETCH_ASSOC);
     var_dump($personne);
 
+    // Vérifier si l'utilisateur existe et si le mot de passe est correct
     if ($personne && password_verify($password, $personne['password'])) {
         // Créer un tableau de données à inclure dans le token JWT
         $token_data = array(
             "mail" => trim($personne['mail']),
-            "password" => $personne['password']
-
+            // Ajoutez d'autres données pertinentes au besoin
         );
 
         // Encoder les données du token en utilisant la clé secrète
