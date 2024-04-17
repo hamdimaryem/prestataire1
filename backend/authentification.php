@@ -21,7 +21,7 @@ if (isset($input_data['mail']) && isset($input_data['password'])) {
     $personne = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // Debugging: Afficher les informations de l'utilisateur récupérées de la base de données
-    var_dump($user);
+    var_dump($personne);
 
     if ($personne && password_verify($password, $personne['password'])) {
         // Créer un tableau de données à inclure dans le token JWT
