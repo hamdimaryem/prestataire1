@@ -1,0 +1,7 @@
+{
+    "name": "casivo/back-end",
+    "type": "project",
+    "require": {
+        "firebase/php-jwt": "^6.10"
+    }
+}
