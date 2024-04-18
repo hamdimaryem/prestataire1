@@ -1,22 +1,23 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+import { AuthService } from './auth.service';
+
 
 @Component({
   selector: 'app-authentification',
   templateUrl: './authentification.component.html',
   styleUrls: ['./authentification.component.css']
 })
-export class authentificationComponent {
+export class AuthentificationComponent {
 
   mail: string = '';
   password: string = '';
 
   constructor(private authService: AuthService, private router: Router) { }
 
-  onSubmit(): void {
-    this.authService.login(this.mail, this.password).subscribe(
-      (response) => {
+  login(): void {
+    this.authService.login(this.mail, this.password).subscribe({
+      next:(response) => {
         if (response.role === 'admin') {
           this.router.navigate(['/gere-fleuriste']);
         } else if (response.role === 'user') {
@@ -25,9 +26,9 @@ export class authentificationComponent {
           console.error('Unauthorized role');
         }
       },
-      (error) => {
+      error: (error) => {
         console.error('Login failed:', error);
-      }
+      }}
     );
   }
   goToSignup(): void {
