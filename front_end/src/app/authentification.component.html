@@ -1,0 +1,84 @@
+<!-- authentification.component.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+ <style>
+.login-container {
+  background-color: #bcd8b7; /* Change la couleur de fond du formulaire en #87a980 */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+  
+
+.form-group {
+  margin-bottom: 15px;
+
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #305035;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #283925; /* Change couleur au hover */
+}
+
+p {
+  margin-top: 15px;
+}
+
+a {
+  color: #ededed;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+</style>
+</head>
+<div class="login-container">
+  <h2>Login</h2>
+  <form (ngSubmit)="login()">
+    <div class="form-group">
+      <label for="mail">E-mail:</label>
+      <input type="email" id="mail" name="mail" [(ngModel)]="mail" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="password" required>
+    </div>
+    <button (click)="onSubmit()">Login</button>
+  </form>
+  <p>Don't have an account? <a href="#" (click)="goToSignup()">Sign up</a></p>
+</div>
+<body>
+  
+</body>
+</html>

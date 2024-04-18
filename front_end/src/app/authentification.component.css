@@ -1,0 +1,54 @@
+/* authentification.component.css */
+
+.login-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #a3cba5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #87a980; /* Change couleur au hover */
+}
+
+p {
+  margin-top: 15px;
+}
+
+a {
+  color: #a3cba5;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
